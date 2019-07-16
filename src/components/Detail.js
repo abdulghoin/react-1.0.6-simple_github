@@ -1,28 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+
+import useFetch from '../hooks/useFetch';
 
 import Followers from './Followers';
 
-export default function(props) {
-  const [detail, setDetail] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const {
-    match: {
-      params: {login},
-    },
-  } = props;
-
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(`https://api.github.com/users/${login}`);
-      const data = await res.json();
-
-      setDetail(data);
-      setIsLoading(false);
-    }
-
-    fetchData();
-  }, [login]);
+export default function({
+  match: {
+    params: {login},
+  },
+}) {
+  const [detail, isLoading] = useFetch(
+    null,
+    `https://api.github.com/users/${login}`,
+  );
 
   if (isLoading) return <p>Loading...</p>;
 

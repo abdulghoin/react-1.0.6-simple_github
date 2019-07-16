@@ -1,24 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+
+import useFetch from '../hooks/useFetch';
 
 import ListItem from './ListItem';
 
 import './List.css';
 
 export default function() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch('https://api.github.com/users');
-      const data = await res.json();
-
-      setData(data);
-      setIsLoading(false);
-    }
-
-    fetchData();
-  }, []);
+  const [data, isLoading] = useFetch([], 'https://api.github.com/users');
 
   if (isLoading) return <p>Loading...</p>;
 
