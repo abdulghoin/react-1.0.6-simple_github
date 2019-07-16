@@ -11,8 +11,7 @@ export default function(defaultData, url) {
 
       setData(data);
       setIsLoading(false);
-    }
-
+    };
     fetchData();
   }, [url]);
 

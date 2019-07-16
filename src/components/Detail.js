@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {Suspense, lazy} from 'react';
 
 import useFetch from '../hooks/useFetch';
 
-import Followers from './Followers';
+import './Detail.css';
+
+const Followers = lazy(() => import('./Followers'));
 
 export default function({
   match: {
@@ -10,7 +12,7 @@ export default function({
   },
 }) {
   const [detail, isLoading] = useFetch(
-    null,
+    {},
     `https://api.github.com/users/${login}`,
   );
 
@@ -43,15 +45,18 @@ export default function({
     },
   };
 
-  return (
-    <section>
-      {Object.keys(neededData).reduce((res, v) => {
-        let {component: Comp, text} = neededData[v];
-        res.push(<Comp {...{text, value: detail[v], key: v}} />);
-        return res;
-      }, [])}
-    </section>
-  );
+  if (!isLoading)
+    return (
+      <section className='detail'>
+        <Suspense fallback={<p>Loading.</p>}>
+          {Object.keys(neededData).reduce((res, v) => {
+            let {component: Comp, text} = neededData[v];
+            res.push(<Comp {...{text, value: detail[v], key: v}} />);
+            return res;
+          }, [])}
+        </Suspense>
+      </section>
+    );
 }
 
 function DetailItem({text, value}) {
