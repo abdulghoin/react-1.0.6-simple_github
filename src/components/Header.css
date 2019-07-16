@@ -1,0 +1,40 @@
+header {
+	position: relative;
+	text-align: center;
+	padding: 0.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+		text-align: left;
+  }
+}
+
+header > a {
+	padding: 1rem;
+	display: inline-block;
+	color: inherit;
+	text-decoration: none;
+}
+
+header > a:hover {
+	background-color: transparent;
+}
+
+header > span {
+	padding: 0.5rem 1rem;
+	border-radius: 0.1rem;
+	border: 2px solid #bab4b4;
+	cursor: pointer;
+	display: inline-block;
+	transition: all 0.5s ease;
+
+	position: absolute;
+	right: 0.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+header > span:hover {
+	background-color: #bab4b4;
+}

@@ -4,6 +4,19 @@
 	float: left;
 }
 
+@media only screen and (max-width: 768px) {
+  .followers_item {
+		width: 50%;
+  }
+}
+
+
+@media only screen and (max-width: 425px) {
+  .followers_item {
+		width: 100%;
+  }
+}
+
 a {
 	padding: 0.5rem 1rem;
 	display: flex;

@@ -3,17 +3,3 @@
 	padding: 2.5vh 2.5rem;
 	min-height: 95vh;
 }
-
-.layout > span {
-	padding: 0.5rem 1rem;
-	border-radius: 0.1rem;
-	border: 2px solid #bab4b4;
-	margin: 1rem;
-	cursor: pointer;
-	display: inline-block;
-	transition: all 0.5s ease;
-}
-
-.layout > span:hover {
-	background-color: #bab4b4;
-}
