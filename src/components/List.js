@@ -20,7 +20,6 @@ export default function() {
     fetchData();
   }, []);
 
-  console.log(data);
   if (isLoading) return <p>Loading...</p>;
 
   return (
