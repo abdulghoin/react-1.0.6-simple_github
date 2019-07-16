@@ -11,8 +11,13 @@ export default function(defaultData, url) {
 
       setData(data);
       setIsLoading(false);
-    };
+    }
     fetchData();
+
+    return () => {
+      setIsLoading(true);
+      setData(defaultData);
+    };
   }, [url]);
 
   return [data, isLoading];
