@@ -1,12 +1,13 @@
-li {
+a {
 	padding: 0.5rem 1rem;
 	display: flex;
 	align-items: center;
 	transition: all 0.5s ease;
-	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
 }
 
-li:hover {
+a:hover {
 	background-color: #eee;
 }
 
