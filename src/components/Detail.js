@@ -45,18 +45,17 @@ export default function({
     },
   };
 
-  if (!isLoading)
-    return (
-      <section className='detail'>
-        <Suspense fallback={<p>Loading.</p>}>
-          {Object.keys(neededData).reduce((res, v) => {
-            let {component: Comp, text} = neededData[v];
-            res.push(<Comp {...{text, value: detail[v], key: v}} />);
-            return res;
-          }, [])}
-        </Suspense>
-      </section>
-    );
+  return (
+    <section className="detail">
+      <Suspense fallback={<p>Loading.</p>}>
+        {Object.keys(neededData).reduce((res, v) => {
+          let {component: Comp, text} = neededData[v];
+          res.push(<Comp {...{text, value: detail[v], key: v}} />);
+          return res;
+        }, [])}
+      </Suspense>
+    </section>
+  );
 }
 
 function DetailItem({text, value}) {
