@@ -4,6 +4,16 @@ header {
 	padding: 0.5rem;
 }
 
+header::after {
+	content: '';
+	display: block;
+	margin-top: 0.5rem;
+	padding: 0.1rem;
+	border-radius: 0.4rem;
+	width: 100%;
+	background-color: #bab4b4;
+}
+
 @media only screen and (max-width: 768px) {
   header {
 		text-align: left;
