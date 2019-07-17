@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 
 import useFetch from '../hooks/useFetch';
 
+import Loader from './Loader';
+
 import './Followers.css';
 
 export default function Followers({text, value}) {
@@ -12,7 +14,7 @@ export default function Followers({text, value}) {
     <>
       <p style={{marginBottom: '1rem'}}>{text}</p>
       {isLoading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <ul>
           {data.map(({node_id, avatar_url, login}) => (

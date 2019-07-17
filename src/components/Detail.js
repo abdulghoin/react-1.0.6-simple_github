@@ -2,6 +2,8 @@ import React, {Suspense, lazy} from 'react';
 
 import useFetch from '../hooks/useFetch';
 
+import Loader from './Loader';
+
 import './Detail.css';
 
 const Followers = lazy(() => import('./Followers'));
@@ -16,7 +18,7 @@ export default function({
     `https://api.github.com/users/${login}`,
   );
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loader />;
 
   let neededData = {
     name: {
@@ -47,7 +49,7 @@ export default function({
 
   return (
     <section className="detail">
-      <Suspense fallback={<p>Loading.</p>}>
+      <Suspense fallback={<Loader />}>
         {Object.keys(neededData).reduce((res, v) => {
           let {component: Comp, text} = neededData[v];
           res.push(<Comp {...{text, value: detail[v], key: v}} />);
