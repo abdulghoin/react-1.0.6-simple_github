@@ -1,18 +1,16 @@
-import React from 'react';
-import {useThemeConsumer} from '../contexts/theme';
+import React, {useContext} from 'react';
+import theme from '../contexts/theme';
 
 import Header from './Header';
 
 import './Layout.css';
 
-export default useThemeConsumer(function({
-  children,
-  themeContext: {mode, themes},
-}) {
+export default function({children}) {
+  const {mode, themes} = useContext(theme);
   return (
     <section className="layout" style={themes[mode]}>
       <Header />
       {children}
     </section>
   );
-});
+}

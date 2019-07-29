@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
-import {useThemeConsumer} from '../contexts/theme';
+import theme from '../contexts/theme';
 
 import './Header.css';
 
-export default useThemeConsumer(function({themeContext: {toggleTheme, mode}}) {
+export default function() {
+  const {toggleTheme, mode} = useContext(theme);
   return (
     <header>
       <Link to="/">Simple Github</Link>
@@ -13,4 +14,4 @@ export default useThemeConsumer(function({themeContext: {toggleTheme, mode}}) {
       </span>
     </header>
   );
-});
+}

@@ -31,14 +31,4 @@ export function ThemeProvider(props) {
   );
 }
 
-export function useThemeConsumer(Child) {
-  return function(props) {
-    return (
-      <Theme.Consumer>
-        {themeContext => <Child {...{...props, themeContext}} />}
-      </Theme.Consumer>
-    );
-  };
-}
-
 export default Theme;
