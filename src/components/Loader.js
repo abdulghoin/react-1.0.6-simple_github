@@ -4,7 +4,7 @@ import './Loader.css';
 
 export default function() {
   return (
-    <div class="lds-ellipsis">
+    <div className="lds-ellipsis">
       <div />
       <div />
       <div />
